@@ -12,7 +12,7 @@ public class day1Challenge {
 
         FileIOUtil fileIOUtil = new FileIOUtil();
 
-        String inputForCode = fileIOUtil.readFile("C:\\Users\\Ciaran\\Documents\\ClutterStuff\\GenericTextFiles\\InputforDay1Challenge.txt");
+        String inputForCode = fileIOUtil.readFileIntoSingleString("C:\\Users\\Ciaran\\Documents\\ClutterStuff\\GenericTextFiles\\InputforDay1Challenge.txt");
 
         int countFloors = 0;
         char openBracket = '(';
@@ -25,7 +25,7 @@ public class day1Challenge {
             } else if (inputForCode.charAt(i) == closeBracket) {
                 countFloors--;
             }
-            System.out.println("Floors : " + countFloors);
         }
+        System.out.println("Floors : " + countFloors);
     }
 }
