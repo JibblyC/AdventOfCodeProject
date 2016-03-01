@@ -11,12 +11,6 @@ import java.util.regex.Pattern;
  */
 public class Day2Challenge {
 
-    private int length = 0;
-    private int width = 0;
-    private int height = 0;
-    int totalWrappingPaperNeeded = 0;
-    int totalRibbonNeeded = 0;
-
     public static void main(String[] args) throws IOException {
 
         FileIOUtil fileIOUtil = new FileIOUtil();
@@ -27,6 +21,14 @@ public class Day2Challenge {
         System.out.println("Total Wrapping Paper Needed : " + day2Challenge.getTotalWrappingPaperNeeded());
         System.out.println("Total Ribbon Paper Needed : " + day2Challenge.getTotalRibbonNeeded());
     }
+
+
+    private int length = 0;
+    private int width = 0;
+    private int height = 0;
+    int totalWrappingPaperNeeded = 0;
+    int totalRibbonNeeded = 0;
+
     public void calculateTotalPaperAndRibbon(String[] inputFromFile) {
 
         for (int i = 0; i < inputFromFile.length; i++) {
