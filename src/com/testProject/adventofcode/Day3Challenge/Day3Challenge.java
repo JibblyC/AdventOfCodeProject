@@ -3,9 +3,7 @@ package com.testProject.adventofcode.Day3Challenge;
 import com.testProject.utilclasses.FileIOUtil;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -15,31 +13,34 @@ public class Day3Challenge {
 
 
     static Set<Coordinates> housesVisited = new HashSet<Coordinates>();
-    Coordinates current = new Coordinates(0, 0);
+    Coordinates currentSanta = new Coordinates(0, 0);
+    Coordinates currentRoboSanta = new Coordinates(0, 0);
 
 
     public static void main(String[] args) throws IOException {
 
         FileIOUtil fileIOUtil = new FileIOUtil();
         String inputForCode = fileIOUtil.readFileIntoSingleString("C:\\Users\\Ciaran\\Documents\\ClutterStuff\\GenericTextFiles\\InputforDay3Challenge.txt");
-
         //String inputForCode = "^>v<";
 
         Day3Challenge day3Challenge = new Day3Challenge();
-       housesVisited.add(new Coordinates(0,0));
+        housesVisited.add(new Coordinates(0,0));
 
-        for (int i = 0 ; i < inputForCode.length() - 1;i++){
-            Coordinates result = day3Challenge.calculateDirection("" + inputForCode.charAt(i),day3Challenge.current);
-            Coordinates newCO = new Coordinates(day3Challenge.current.getX(),day3Challenge.current.getY());
+        for (int i = 0 ; i < inputForCode.length();i++){
+            if(i % 2 == 0){
+                Coordinates result = day3Challenge.calculateDirection("" + inputForCode.charAt(i),day3Challenge.currentSanta);
+                Coordinates newCO = new Coordinates(day3Challenge.currentSanta.getX(),day3Challenge.currentSanta.getY());
+                housesVisited.add(newCO);
+            }
+            else
+            {
+                Coordinates result = day3Challenge.calculateDirection("" + inputForCode.charAt(i),day3Challenge.currentRoboSanta);
+                Coordinates newCO = new Coordinates(day3Challenge.currentRoboSanta.getX(),day3Challenge.currentRoboSanta.getY());
+                housesVisited.add(newCO);
+            }
 
-            housesVisited.add(newCO);
         }
-        System.out.println(housesVisited.size());
-
-        for(Coordinates s : housesVisited){
-            System.out.println(s.toString());
-        }
-
+        System.out.println(housesVisited.size() + " " +  (0 % 2) +" " + (1%2) + " " + (2%2) );
     }
 
 
