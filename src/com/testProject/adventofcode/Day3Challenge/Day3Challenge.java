@@ -40,7 +40,7 @@ public class Day3Challenge {
             }
 
         }
-        System.out.println(housesVisited.size() + " " +  (0 % 2) +" " + (1%2) + " " + (2%2) );
+        System.out.println(housesVisited.size());
     }
 
 
